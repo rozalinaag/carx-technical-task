@@ -1,0 +1,16 @@
+.wrapper{
+  color: rgb(61, 61, 61);
+  font-weight: 500;
+
+  display: flex;
+  gap: 10px;
+
+  & a:hover, & div:hover{
+    color: rgb(188, 0, 0);
+  }
+
+  & a:before, & div:before{
+    content: '•';
+    padding-right: 10px;
+  }
+}

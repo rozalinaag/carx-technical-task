@@ -1,5 +1,5 @@
+import BreadCrumbs from '@/shared/BreadCrumbs/BreadCrumbs';
 import pageNotFoundImg from '../../public/pageNotFound.jpg';
-import { BreadCrumbs } from '../shared';
 
 export default function NotFound() {
   return (

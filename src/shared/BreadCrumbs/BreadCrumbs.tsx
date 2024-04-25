@@ -1,10 +1,15 @@
 import Link from 'next/link';
+import css from './BreadCrumbs.module.css';
 
-export function BreadCrumbs() {
+type Props = {
+  children?: React.ReactNode;
+};
+
+export default function BreadCrumbs({ children }: Props) {
   return (
-    <div>
+    <div className={css.wrapper}>
       <Link href="/tickets">Главная</Link>
-      dskl
+      {children}
     </div>
   );
 }
