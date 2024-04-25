@@ -33,7 +33,9 @@ export default function RootLayout({
           </div>
 
           <div className={'w-[200px] flex justify-end'}>
-            {false ? <SignIn size={32} /> : <SignOut size={32} />}
+            <Link href="/login">
+              {false ? <SignIn size={32} /> : <SignOut size={32} />}
+            </Link>
           </div>
         </header>
 

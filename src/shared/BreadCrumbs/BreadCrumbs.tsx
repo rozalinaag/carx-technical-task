@@ -9,7 +9,7 @@ export default function BreadCrumbs({ children }: Props) {
   return (
     <div className={css.wrapper}>
       <Link href="/tickets">Главная</Link>
-      {children}
+      {children && <div>{children}</div>}
     </div>
   );
 }

@@ -9,9 +9,7 @@ type Props = {
 export default function TicketId({ params }: Props) {
   return (
     <div className={css.wrapper}>
-      <BreadCrumbs>
-        <div>История запроса</div>
-      </BreadCrumbs>
+      <BreadCrumbs>История запроса</BreadCrumbs>
     </div>
   );
 }

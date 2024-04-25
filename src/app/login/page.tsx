@@ -1,7 +1,9 @@
-import css from './styles.module.css';
+import BreadCrumbs from '@/shared/BreadCrumbs/BreadCrumbs';
 
 export default function Login() {
-  return <div className={css.wrapper}>
-    
-  </div>
+  return (
+    <div>
+      <BreadCrumbs>Авторизация</BreadCrumbs>
+    </div>
+  );
 }

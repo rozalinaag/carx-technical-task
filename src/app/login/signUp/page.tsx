@@ -1,5 +1,9 @@
-// import css from './page.module.css';
+import BreadCrumbs from '@/shared/BreadCrumbs/BreadCrumbs';
 
 export default function SignUp() {
-  return <div>grfedw</div>
+  return (
+    <div>
+      <BreadCrumbs>Регистрация</BreadCrumbs>
+    </div>
+  );
 }
