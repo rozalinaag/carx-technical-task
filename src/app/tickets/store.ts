@@ -14,6 +14,12 @@ class TicketsStore {
     localStorage.setItem('tickets', JSON.stringify(this.tickets));
   }
 
+  getOneTicket = (id: number) => {
+    const tickets: Ticket[] = localStorage.tickets? JSON.parse( localStorage.tickets ) : initialTickets;
+    const ticket = tickets.find(item => item.id === id)
+    return ticket
+  }
+
   deleteTicketAction = (id: number) => {
     // this.clients = deleteClients(keys, this.clients);
     // localStorage.setItem('clients', JSON.stringify(this.clients));

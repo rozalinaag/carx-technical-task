@@ -14,9 +14,9 @@ export default function Ticket({ ticket }: Props) {
         {ticket.topic}
       </Field>
 
-      <Field name="Сообщение">{ticket.message}</Field>
-
       <Field name="Пользователь">{ticket.user.name}</Field>
+
+      <Field name="Сообщение">{ticket.message}</Field>
     </Link>
   );
 }
