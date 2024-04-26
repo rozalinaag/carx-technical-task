@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import logo from '../../public/logo.png';
 import Image from 'next/image';
 import { SignIn } from '@phosphor-icons/react/dist/ssr';
 import { SignOut } from '@phosphor-icons/react/dist/ssr';
 import Link from 'next/link';
+import logo from '../../public/favicon.ico';
 import { StoreProvider } from '@/shared/providers/StoreProvider';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -24,9 +24,9 @@ export default function RootLayout({
     <html lang="ru" suppressHydrationWarning={true}>
       <StoreProvider>
         <body className={inter.className}>
-          <header className="pl-20 pr-20 flex justify-between items-center h-[70px] bg-zinc-300">
-            <Link href="/tickets">
-              <Image width={200} height={20} src={logo.src} alt="logo" />
+          <header className="pl-20 pr-20 flex justify-between items-center h-[70px] bg-black">
+            <Link href="/tickets" className="w-[200px]">
+              <Image width={150} height={20} src={logo.src} alt="logo" />
             </Link>
 
             <div className={'w-[200px] font-semibold text-lg'}>
@@ -39,7 +39,8 @@ export default function RootLayout({
               </Link>
             </div>
           </header>
-          <div className="w-screen h-screen p-20">{children}</div>
+
+          <div className="min-h-screen p-20">{children}</div>
 
           <footer className="text-center">
             Тестовое задание ©{new Date().getFullYear()} Розалина Агишева

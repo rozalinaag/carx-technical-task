@@ -1,6 +1,5 @@
 'use client';
 import BreadCrumbs from '@/shared/ui/BreadCrumbs/BreadCrumbs';
-import css from './styles.module.css';
 import { useEffect } from 'react';
 import { useStores } from '@/shared/hooks/useStore';
 import { observer } from 'mobx-react-lite';
@@ -20,12 +19,14 @@ const Tickets = observer(() => {
   console.log(tickets);
 
   return (
-    <div className={css.wrapper}>
+    <div>
       <BreadCrumbs />
 
-      {tickets?.map((ticket) => (
-        <Ticket key={ticket.id} ticket={ticket} />
-      ))}
+      <div className="flex flex-col gap-10">
+        {tickets?.map((ticket) => (
+          <Ticket key={ticket.id} ticket={ticket} />
+        ))}
+      </div>
     </div>
   );
 });

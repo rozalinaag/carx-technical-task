@@ -1,12 +1,19 @@
 .wrapper{
-  color: rgb(61, 61, 61);
+  --color-bread: rgb(222, 221, 221)
+  color: var(--color-bread);
   font-weight: 500;
+  margin-bottom: 40px;
 
   display: flex;
   gap: 10px;
 
   & a:hover, & div:hover{
     color: rgb(188, 0, 0);
+  }
+
+  & a:last-child, & div:last-child{
+    color: var(--color-bread);
+    cursor: auto;
   }
 
   & a:before, & div:before{

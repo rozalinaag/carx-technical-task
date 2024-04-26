@@ -1,0 +1,22 @@
+.wrapper{
+  display: flex;
+  gap: 10px;
+}
+
+.title{
+  font-weight: 700;
+  color: #7EE787;
+}
+
+.green{
+  color: #7EE787;
+}
+
+.blue{
+  color: #79C0FF;
+}
+
+.text{
+  width: 800px;
+  line-height: 1.3;
+}
