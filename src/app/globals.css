@@ -16,6 +16,8 @@
   -moz-osx-font-smoothing: grayscale;
 
   --additional-color: #d9d9d9;
+  --green: #7EE787;
+  --red: #ca1414;
 }
 
 * {
@@ -88,7 +90,8 @@ table {
 }
 
 .ticket{
-  background: #1f1f1f;
+  background: #2d2d2d;
+  position: relative;
   padding: 40px;
   border-radius: 8px;
   border: 1px solid rgb(60, 60, 60);
@@ -99,5 +102,30 @@ table {
 }
 
 .ticket:hover{
-  background: #191919;
+  background: #121212;
 }
+
+.title{
+  font-weight: 700;
+  color: var(--green);
+}
+
+input{
+  padding: 6px 12px;
+  width: 100%;
+  background: rgb(31, 32, 35);
+  border: 1px solid rgb(60, 63, 68);
+  border-radius: 4px;
+  font-size: 13px;
+  color: rgb(247, 248, 248);
+  height: 46px;
+  appearance: none;
+  transition: border 0.15s ease 0s;
+}
+
+input:focus{
+  outline: none;
+  box-shadow: none;
+  border-color: rgb(100, 153, 255);
+}
+

@@ -1,0 +1,24 @@
+.wrapper{
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.comments{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(226 232 240);
+  padding-bottom: 20px; 
+}
+
+.text{
+  max-width: 600px;
+  line-height: 1.3;
+}
+
+.userName{
+  color: #79C0FF;
+  margin-bottom: 8px;
+}

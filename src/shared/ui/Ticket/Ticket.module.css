@@ -1,0 +1,13 @@
+.status{
+  position: absolute;
+  right: 0;
+  padding-right: 40px;
+}
+
+.closed{
+ color: var(--red);
+}
+
+.open{
+  color: var(--green);
+}

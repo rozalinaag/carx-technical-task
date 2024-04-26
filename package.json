@@ -10,13 +10,17 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.5-alpha.3",
+    "@types/uuid": "^9.0.8",
     "classnames": "^2.5.1",
+    "dayjs": "^1.11.10",
     "mobx": "^6.12.3",
     "mobx-react-lite": "^4.0.7",
     "mobx-utils": "^6.0.8",
     "next": "14.2.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.51.3",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",

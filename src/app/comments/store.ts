@@ -10,17 +10,18 @@ class CommentsStore {
   }
 
   getCommentsByIdTicket = (idTicket: number) => {
-    this.commentsByTicketId = localStorage['comment' + idTicket]? JSON.parse( localStorage['comment' + idTicket] ) : 
-    comments.find(item => item.idTicket === idTicket);
+    this.commentsByTicketId = localStorage['comment' + idTicket]? JSON.parse( localStorage['comment' + idTicket] ) : comments.filter(item => item.idTicket === idTicket) || null;
+    localStorage.setItem('comment' + idTicket, JSON.stringify(this.commentsByTicketId));
     return this.commentsByTicketId
+
   }
 
-  deleteTicketAction = (id: number) => {
+  deleteTicketAction = (idTicket: number, idComment: number) => {
     // this.clients = deleteClients(keys, this.clients);
     // localStorage.setItem('clients', JSON.stringify(this.clients));
   }
 
-  pushNewTicketAction = (newTicket: CommentType) => {
+  pushNewTicketAction = (idTicket: number, newTicket: CommentType) => {
     // const  newData = [...this.clients.filter(item => item.key !== newClient.key), newClient]
     // this.clients = newData;
     // localStorage.setItem('clients', JSON.stringify(newData));

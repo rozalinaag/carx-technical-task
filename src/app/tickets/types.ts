@@ -6,4 +6,5 @@ export type Ticket = {
   message: string, 
   files?: Blob[],
   user: User
+  isClosed: boolean 
 }

@@ -7,6 +7,7 @@ export const initialTickets = [
       id: 1,
       name: 'Светлана Цветаева',
     },
+    isClosed: false,
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ export const initialTickets = [
       id: 2,
       name: 'Игорь Иванов',
     },
+    isClosed: true,
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ export const initialTickets = [
       id: 3,
       name: 'Анна Вишневская',
     },
+    isClosed: false,
   },
   {
     id: 4,
@@ -36,6 +39,7 @@ export const initialTickets = [
       id: 4,
       name: 'Дмитрий Помидоров',
     },
+    isClosed: true,
   },
   {
     id: 5,
@@ -46,5 +50,6 @@ export const initialTickets = [
       id: 5,
       name: 'Кристина Огуречнова',
     },
+    isClosed: false
   },
 ];

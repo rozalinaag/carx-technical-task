@@ -4,17 +4,14 @@ import css from './Field.module.css';
 type Props = {
   name: string;
   children: React.ReactNode;
-  color?: 'green' | 'blue';
+  color?: 'red' | 'blue';
 };
 
 export default function Field({ name, children, color }: Props) {
   return (
     <div className={css.wrapper}>
       <div
-        className={classNames(
-          css.title,
-          color && (color === 'green' ? css.green : css.blue)
-        )}
+        className={classNames('title', color && color === 'blue' && css.blue)}
       >
         {name}:
       </div>

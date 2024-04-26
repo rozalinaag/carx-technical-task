@@ -1,6 +1,7 @@
 export type CommentType = {
-  id: number,
+  id: string,
   idTicket: number,
   userName: string,
-  text: string
+  text: string,
+  data: Date,
 }
