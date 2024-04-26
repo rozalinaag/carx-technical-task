@@ -1,7 +1,7 @@
 import { User } from "../login/type"
 
 export type Ticket = {
-  id: number,
+  id: string,
   topic: string,
   message: string, 
   files?: Blob[],

@@ -16,12 +16,16 @@ export default function TicketId({ params }: Props) {
   const [ticket, setTicket] = useState<TicketType>();
   const {
     tickets: { getOneTicket },
-    comments: { commentsByTicketId, getCommentsByIdTicket },
+    comments: {
+      commentsByTicketId,
+      getCommentsByIdTicket,
+      pushNewCommentAction,
+    },
   } = useStores();
 
   useEffect(() => {
-    setTicket(getOneTicket(parseInt(params.ticketId)));
-    getCommentsByIdTicket(parseInt(params.ticketId));
+    setTicket(getOneTicket(params.ticketId));
+    getCommentsByIdTicket(params.ticketId);
   }, [getOneTicket, params.ticketId, getCommentsByIdTicket]);
 
   return (
@@ -48,7 +52,12 @@ export default function TicketId({ params }: Props) {
               ))}
             </div>
 
-            {!ticket?.isClosed && <FormComment />}
+            {!ticket?.isClosed && (
+              <FormComment
+                idTicket={params.ticketId}
+                pushNewComment={pushNewCommentAction}
+              />
+            )}
           </div>
         )}
       </div>

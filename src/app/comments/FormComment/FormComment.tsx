@@ -5,8 +5,8 @@ import { v4 as uuIdv4 } from 'uuid';
 import { UserIcon } from '@/shared/ui/UserIcon/UserIcon';
 
 type Props = {
-  idTicket: number;
-  pushNewComment: (idTicket: number, newComment: CommentType) => void;
+  idTicket: string;
+  pushNewComment: (idTicket: string, newComment: CommentType) => void;
 };
 
 type Form = {

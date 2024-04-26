@@ -14,7 +14,7 @@ class TicketsStore {
     localStorage.setItem('tickets', JSON.stringify(this.tickets));
   }
 
-  getOneTicket = (id: number) => {
+  getOneTicket = (id: string) => {
     const tickets: Ticket[] = localStorage.tickets? JSON.parse( localStorage.tickets ) : initialTickets;
     const ticket = tickets.find(item => item.id === id)
     return ticket

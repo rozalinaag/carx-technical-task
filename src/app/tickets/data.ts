@@ -1,6 +1,6 @@
 export const initialTickets = [
   {
-    id: 1,
+    id: "1",
     topic: 'Проблемы в программном обеспечении',
     message: 'Добрый день, не открывается файл Excel.',
     user: {
@@ -10,7 +10,7 @@ export const initialTickets = [
     isClosed: false,
   },
   {
-    id: 2,
+    id: "2",
     topic: 'Копьютер и другая техника',
     message:
       'Добрый день, не включается компьютер, не могу работать, помогите...',
@@ -21,7 +21,7 @@ export const initialTickets = [
     isClosed: true,
   },
   {
-    id: 3,
+    id: "3",
     topic: 'Копьютер и другая техника',
     message:
       'Доброе утро, сегодня в 16:00 произошел сбой на компьютере. Удалились все файлы.',
@@ -32,7 +32,7 @@ export const initialTickets = [
     isClosed: false,
   },
   {
-    id: 4,
+    id: "4",
     topic: 'Проблемы с сетью',
     message: 'Здравствуйте, не могу подключиться к сети. Нужна помощь.',
     user: {
@@ -42,7 +42,7 @@ export const initialTickets = [
     isClosed: true,
   },
   {
-    id: 5,
+    id: "5",
     topic: 'Проблемы в программном обеспечении',
     message:
       'Здравствуйте, не подходит сертификат от пакета Microsoft Office. Подскажите ключ для доступа к программам для моей учетной записи.',

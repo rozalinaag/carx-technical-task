@@ -9,22 +9,15 @@ class CommentsStore {
     makeAutoObservable(this)
   }
 
-  getCommentsByIdTicket = (idTicket: number) => {
+  getCommentsByIdTicket = (idTicket: string) => {
     this.commentsByTicketId = localStorage['comment' + idTicket]? JSON.parse( localStorage['comment' + idTicket] ) : comments.filter(item => item.idTicket === idTicket) || null;
     localStorage.setItem('comment' + idTicket, JSON.stringify(this.commentsByTicketId));
     return this.commentsByTicketId
-
   }
 
-  deleteTicketAction = (idTicket: number, idComment: number) => {
-    // this.clients = deleteClients(keys, this.clients);
-    // localStorage.setItem('clients', JSON.stringify(this.clients));
-  }
-
-  pushNewTicketAction = (idTicket: number, newTicket: CommentType) => {
-    // const  newData = [...this.clients.filter(item => item.key !== newClient.key), newClient]
-    // this.clients = newData;
-    // localStorage.setItem('clients', JSON.stringify(newData));
+  pushNewCommentAction = (idTicket: string, newComment: CommentType) => {
+    this.commentsByTicketId = this.commentsByTicketId ? [...this.commentsByTicketId, newComment]: [newComment];
+    localStorage.setItem('comment' + idTicket, JSON.stringify(this.commentsByTicketId));
   }
 }
 
