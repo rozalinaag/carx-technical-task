@@ -10,13 +10,7 @@ type Props = {
 export default function Field({ name, children, color }: Props) {
   return (
     <div className={css.wrapper}>
-      <div
-        className={classNames(
-          'title',
-          css.name,
-          color && color === 'blue' && css.blue
-        )}
-      >
+      <div className={classNames('title', css.name, color && css[color])}>
         {name}:
       </div>
       <div className={css.text}>{children}</div>

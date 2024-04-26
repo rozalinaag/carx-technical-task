@@ -22,7 +22,7 @@ export const comments: CommentType[] = [
     data: new Date(),
   },
   {
-    id: "2",
+    id: "3",
     idTicket: "1",
     user: {
       id: 1,
@@ -32,13 +32,23 @@ export const comments: CommentType[] = [
     data: new Date(),
   },
   {
-    id: "3",
+    id: "4",
     idTicket: "2",
     user: {
       id: 1,
       name: 'Светлана Цветаева',
     },
     text: 'Пример комменатрия',
+    data: new Date(),
+  },
+  {
+    id: "5",
+    idTicket: "2",
+    user: {
+      id: 1,
+      name: 'Игорь Иванов',
+    },
+    text: 'Добрый день, готово?',
     data: new Date(),
   },
 ]

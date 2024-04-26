@@ -5,6 +5,11 @@
 
 .name{
   width: 130px;
+  color: var(--green);
+}
+
+.red{
+  color: var(--red);
 }
 
 .blue{

@@ -13,7 +13,7 @@ type Props = {
 export default function Ticket({ ticket, link = true }: Props) {
   const content = (
     <>
-      <Field name="Тема" color="blue">
+      <Field name="Тема" color="red">
         {ticket.topic}
       </Field>
 

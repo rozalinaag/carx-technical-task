@@ -51,20 +51,20 @@ const TicketId = observer(({ params }: Props) => {
                   text={item.text}
                 />
               ))}
-            </div>
 
-            {!ticket?.isClosed ? (
-              <FormComment
-                idTicket={params.ticketId}
-                pushNewComment={pushNewCommentAction}
-              />
-            ) : (
-              <CommentLine
-                data={ticket.dataClose}
-                userName={'Техническая поддержка'}
-                text={'История закрыта'}
-              />
-            )}
+              {!ticket?.isClosed ? (
+                <FormComment
+                  idTicket={params.ticketId}
+                  pushNewComment={pushNewCommentAction}
+                />
+              ) : (
+                <CommentLine
+                  data={ticket.dataClose}
+                  userName={'Техническая поддержка'}
+                  text={'История закрыта'}
+                />
+              )}
+            </div>
           </div>
         )}
       </div>
