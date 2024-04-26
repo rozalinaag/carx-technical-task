@@ -1,5 +1,5 @@
 'use client';
-import BreadCrumbs from '@/shared/BreadCrumbs/BreadCrumbs';
+import BreadCrumbs from '@/shared/ui/BreadCrumbs/BreadCrumbs';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 

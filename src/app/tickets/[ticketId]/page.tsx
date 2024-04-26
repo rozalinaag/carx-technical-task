@@ -1,4 +1,4 @@
-import BreadCrumbs from '@/shared/BreadCrumbs/BreadCrumbs';
+import BreadCrumbs from '@/shared/ui/BreadCrumbs/BreadCrumbs';
 import css from './styles.module.css';
 import Link from 'next/link';
 

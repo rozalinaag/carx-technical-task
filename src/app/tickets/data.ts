@@ -4,7 +4,7 @@ export const initialTickets = [
     name: 'dd',
   },
   {
-    id: 1,
+    id: 2,
     name: 'dd',
   }
 ]

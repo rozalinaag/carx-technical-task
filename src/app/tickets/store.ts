@@ -3,11 +3,15 @@ import { initialTickets } from "@/app/tickets/data";
 import { Ticket } from "./types";
 
 class TicketsStore {
-  tickets: Ticket[] = localStorage.tickets? JSON.parse( localStorage.tickets ) : initialTickets;
+  tickets: Ticket[] | null = null;
   
   constructor() {
-    localStorage.setItem('tickets', JSON.stringify(this.tickets));
     makeAutoObservable(this)
+  }
+
+  getTicketsAction = () => {
+    this.tickets = localStorage.tickets? JSON.parse( localStorage.tickets ) : initialTickets;
+    localStorage.setItem('tickets', JSON.stringify(this.tickets));
   }
 
   deleteTicketAction = (id: number) => {
