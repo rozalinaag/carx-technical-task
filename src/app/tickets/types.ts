@@ -7,4 +7,6 @@ export type Ticket = {
   files?: Blob[],
   user: User
   isClosed: boolean 
+  dataOpen: Date
+  dataClose: Date
 }

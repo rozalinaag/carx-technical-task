@@ -3,6 +3,10 @@
   gap: 10px;
 }
 
+.name{
+  width: 130px;
+}
+
 .blue{
   color: #79C0FF;
 }

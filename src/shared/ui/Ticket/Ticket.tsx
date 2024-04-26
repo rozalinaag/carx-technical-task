@@ -3,6 +3,7 @@ import css from './Ticket.module.css';
 import Field from '../Field/Field';
 import Link from 'next/link';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 
 type Props = {
   ticket: TicketType;
@@ -17,6 +18,9 @@ export default function Ticket({ ticket, link = true }: Props) {
       </Field>
 
       <Field name="Пользователь">{ticket.user.name}</Field>
+      <Field name="Создано">
+        {dayjs(ticket.dataOpen).format('DD MMMM YYYY')}
+      </Field>
 
       <Field name="Сообщение" color="blue">
         {ticket.message}
@@ -26,7 +30,7 @@ export default function Ticket({ ticket, link = true }: Props) {
 
   if (link) {
     return (
-      <Link href={'tickets/' + ticket.id} className="ticket">
+      <Link href={'tickets/' + ticket.id} className="ticket ticketHover">
         {content}
 
         <div

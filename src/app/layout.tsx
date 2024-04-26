@@ -42,7 +42,7 @@ export default function RootLayout({
 
           <div className="min-h-screen p-20">{children}</div>
 
-          <footer className="text-center">
+          <footer className="text-center mb-10">
             Тестовое задание ©{new Date().getFullYear()} Розалина Агишева
           </footer>
         </body>

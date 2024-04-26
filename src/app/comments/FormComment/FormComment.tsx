@@ -30,7 +30,10 @@ export default function FormComment({ pushNewComment, idTicket }: Props) {
     pushNewComment(idTicket, {
       id: data.id,
       idTicket: idTicket,
-      userName: 'ssss',
+      user: {
+        name: 'dd',
+        id: 2,
+      },
       text: data.text,
       data: new Date(),
     });
