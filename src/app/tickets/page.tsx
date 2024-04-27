@@ -9,6 +9,7 @@ import FormTicket from './FormTicket/FormTicket';
 const Tickets = observer(() => {
   const {
     tickets: { tickets, getTicketsAction, pushNewTicketAction },
+    users: { currentUser },
   } = useStores();
 
   useEffect(() => {
@@ -21,7 +22,10 @@ const Tickets = observer(() => {
     <div>
       <BreadCrumbs />
 
-      <FormTicket pushNewTicketAction={pushNewTicketAction} />
+      <FormTicket
+        currentUser={currentUser!}
+        pushNewTicketAction={pushNewTicketAction}
+      />
 
       <div className="flex flex-col gap-10">
         {tickets &&

@@ -17,6 +17,12 @@ class UserStore {
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser))
   }
 
+  getCurrentUser = () => {
+    this.currentUser = localStorage.currentUser? JSON.parse( localStorage.currentUser ) : null;
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser))
+    return this.currentUser
+  }
+
   signInUser = (email: string, password: string) => {
     const user = this.users?.find(item => item.email === email && item.password === password )
     if (user) {
@@ -35,7 +41,9 @@ class UserStore {
 
   pushNewUser = (newUser: UserType) => {
     this.users = this.users ? [...this.users, newUser]: [newUser];
+    this.currentUser = newUser,
     localStorage.setItem('users', JSON.stringify(this.users));
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
   }
 }
 

@@ -3,10 +3,12 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { CommentType } from '../types';
 import { v4 as uuIdv4 } from 'uuid';
 import { UserIcon } from '@/shared/ui/UserIcon/UserIcon';
+import { UserType } from '@/app/login/type';
 
 type Props = {
   idTicket: string;
   pushNewComment: (idTicket: string, newComment: CommentType) => void;
+  currentUser: UserType;
 };
 
 type Form = {
@@ -14,7 +16,11 @@ type Form = {
   text: string;
 };
 
-export default function FormComment({ pushNewComment, idTicket }: Props) {
+export default function FormComment({
+  pushNewComment,
+  idTicket,
+  currentUser,
+}: Props) {
   const {
     register,
     handleSubmit,
@@ -30,10 +36,7 @@ export default function FormComment({ pushNewComment, idTicket }: Props) {
     pushNewComment(idTicket, {
       id: data.id,
       idTicket: idTicket,
-      user: {
-        name: 'dd',
-        id: 2,
-      },
+      user: currentUser,
       text: data.text,
       data: new Date(),
     });

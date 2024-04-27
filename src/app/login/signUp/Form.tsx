@@ -3,11 +3,12 @@ import { useStores } from '@/shared/hooks/useStore';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { v4 as uuIdv4 } from 'uuid';
 
-export function CredentialsForm() {
+export function Form() {
   const router = useRouter();
   const {
-    users: { signInUser },
+    users: { pushNewUser },
   } = useStores();
 
   const [error, setError] = useState<string | null>(null);
@@ -20,16 +21,18 @@ export function CredentialsForm() {
     const data = new FormData(e.currentTarget);
     const password = data.get('password');
     const email = data.get('email');
+    const name = data.get('name');
 
-    if (password && email) {
-      const signInAction = signInUser(email.toString(), password.toString());
-      if (!signInAction) {
-        setError('Ваш email или пароль неправильный!');
-      } else {
-        router.push('/tickets');
-      }
+    if (password && email && name) {
+      pushNewUser({
+        email: email.toString(),
+        password: password.toString(),
+        name: name.toString(),
+        id: uuIdv4(),
+      });
+      router.push('/tickets');
     } else {
-      setError('Введите пароль и логин');
+      setError('Заполните все поля');
     }
   };
 
@@ -52,9 +55,17 @@ export function CredentialsForm() {
       />
 
       <input
+        type="text"
+        name="name"
+        placeholder="Имя"
+        required
+        className="w-full px-4 py-4 mb-4 border border-gray-300 rounded-md"
+      />
+
+      <input
         type="password"
         name="password"
-        placeholder="Password"
+        placeholder="Пароль"
         required
         className="w-full px-4 py-4 mb-4 border border-gray-300 rounded-md"
       />
@@ -63,11 +74,11 @@ export function CredentialsForm() {
         type="submit"
         className="w-full h-12 px-6 mt-4 text-lg text-white transition-colors duration-150 bg-blue-600 rounded-lg focus:shadow-outline hover:bg-blue-700"
       >
-        Войти
+        Создать аккаунт
       </button>
 
-      <Link className="link mt-5 text-center" href="/login/signUp">
-        Зарегистрироваться
+      <Link className="link mt-5 text-center" href="/login">
+        Войти
       </Link>
     </form>
   );

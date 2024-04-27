@@ -9,16 +9,16 @@ type Props = {
 
 export const AuthProvider = ({ children }: Props) => {
   const router = useRouter();
-
   const {
-    users: { currentUser },
+    users: { currentUser, getUsers, getCurrentUser },
   } = useStores();
 
   useEffect(() => {
-    if (!currentUser) {
+    getUsers();
+    if (getCurrentUser() === null) {
       router.push('/login');
     }
-  }, [router, currentUser]);
+  }, [router, currentUser, getUsers, getCurrentUser]);
 
   return <>{children}</>;
 };

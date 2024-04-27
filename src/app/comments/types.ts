@@ -1,9 +1,9 @@
-import { User } from "../login/type"
+import { UserType } from "../login/type"
 
 export type CommentType = {
   id: string,
   idTicket: string,
-  user: User
+  user: UserType
   text: string,
   data: Date,
 }

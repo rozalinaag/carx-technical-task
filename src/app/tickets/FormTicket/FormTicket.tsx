@@ -4,9 +4,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { v4 as uuIdv4 } from 'uuid';
 import css from './FormTicket.module.css';
 import { Paperclip } from '@phosphor-icons/react/dist/ssr';
+import { UserType } from '@/app/login/type';
 
 type Props = {
   pushNewTicketAction: (newTicket: Ticket) => void;
+  currentUser: UserType;
 };
 
 type Form = {
@@ -14,7 +16,11 @@ type Form = {
   text: string;
   files: Blob[];
 };
-export default function FormTicket({ pushNewTicketAction }: Props) {
+
+export default function FormTicket({
+  pushNewTicketAction,
+  currentUser,
+}: Props) {
   const {
     register,
     handleSubmit,
@@ -35,10 +41,7 @@ export default function FormTicket({ pushNewTicketAction }: Props) {
       topic: data.topic,
       message: data.text,
       files: arrayFiles,
-      user: {
-        name: 'dd',
-        id: 2,
-      },
+      user: currentUser,
       isClosed: false,
       dataOpen: new Date(),
     });

@@ -128,3 +128,8 @@ table {
   box-shadow: none;
   border-color: rgb(100, 153, 255);
 }
+
+.link{
+  color:rgb(32, 72, 194);
+  font-weight: 700;
+}

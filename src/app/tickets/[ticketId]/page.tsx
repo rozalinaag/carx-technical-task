@@ -8,7 +8,6 @@ import Ticket from '@/shared/ui/Ticket/Ticket';
 import { CommentLine } from '@/shared/ui/CommentLine/CommentLine';
 import FormComment from '@/app/comments/FormComment/FormComment';
 import { observer } from 'mobx-react-lite';
-import Image from 'next/image';
 
 type Props = {
   params: { ticketId: string };
@@ -24,6 +23,7 @@ const TicketId = observer(({ params }: Props) => {
       getCommentsByIdTicket,
       pushNewCommentAction,
     },
+    users: { currentUser },
   } = useStores();
 
   useEffect(() => {
@@ -56,6 +56,7 @@ const TicketId = observer(({ params }: Props) => {
 
               {!ticket?.isClosed ? (
                 <FormComment
+                  currentUser={currentUser!}
                   idTicket={params.ticketId}
                   pushNewComment={pushNewCommentAction}
                 />
