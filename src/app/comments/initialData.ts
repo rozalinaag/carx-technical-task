@@ -51,7 +51,7 @@ export const comments: CommentType[] = [
   },
   {
     id: "1",
-    idTicket: "2",
+    idTicket: "1",
     user: {
       email: 'test@gmail.com', 
       name: 'Игорь Иванов',
