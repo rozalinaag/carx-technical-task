@@ -1,8 +1,9 @@
 'use client';
 
+import { useStores } from '@/shared/hooks/useStore';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface CredentialsFormProps {
   csrfToken?: string;
@@ -10,6 +11,14 @@ interface CredentialsFormProps {
 
 export function CredentialsForm(props: CredentialsFormProps) {
   const router = useRouter();
+  const {
+    users: { users, getUsers, signInUser },
+  } = useStores();
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: {
@@ -19,17 +28,20 @@ export function CredentialsForm(props: CredentialsFormProps) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
 
-    const signInResponse = await signIn('credentials', {
-      email: data.get('email'),
-      password: data.get('password'),
-      redirect: false,
-    });
+    console.log(data);
 
-    if (signInResponse && !signInResponse.error) {
-      router.push('/tickets');
+    const password = data.get('password');
+    const email = data.get('email');
+
+    if (password && email) {
+      const signInAction = signInUser(email.toString(), password.toString());
+      if (!signInAction) {
+        setError('Ваш email или пароль неправильный!');
+      } else {
+        router.push('/tickets');
+      }
     } else {
-      console.log('Error: ', signInResponse);
-      setError('Ваш email или пароль неправильный!');
+      setError('Введите пароль и логин');
     }
   };
 

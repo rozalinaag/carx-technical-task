@@ -1,14 +1,21 @@
-import { getServerSession } from 'next-auth';
-import { redirect } from 'next/navigation';
+'use client';
+import { useRouter } from 'next/navigation';
 import { CredentialsForm } from './credentialsForm';
-import { nextAuthConfig } from '@/entities/session/next-auth-config';
+import { useStores } from '@/shared/hooks/useStore';
+import { useEffect } from 'react';
 
-export default async function SignInPage() {
-  const session = await getServerSession(nextAuthConfig);
+export default function SignInPage() {
+  const router = useRouter();
 
-  console.log('Session: ', session);
+  const {
+    users: { currentUser, logOutUser },
+  } = useStores();
 
-  if (session) return redirect('/timeline');
+  useEffect(() => {
+    if (currentUser) {
+      logOutUser();
+    }
+  }, [router, currentUser, logOutUser]);
 
   return (
     <div className="w-full flex flex-col items-center justify-center py-2">

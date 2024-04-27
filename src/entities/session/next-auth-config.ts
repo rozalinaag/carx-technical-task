@@ -1,7 +1,6 @@
 import { AuthOptions } from "next-auth";
 import {  User, getServerSession } from "next-auth";
-import { useSession } from "next-auth/react";
-import { redirect, useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -19,6 +18,7 @@ export const nextAuthConfig: AuthOptions = {
       },
 
       async authorize(credentials) {
+        console.log(credentials);
         if (!credentials || !credentials.email || !credentials.password)
           return null;
 
@@ -26,9 +26,6 @@ export const nextAuthConfig: AuthOptions = {
           where: { email: credentials.email },
         });
 
-        //Verify Password here
-        //We are going to use a simple === operator
-        //In production DB, passwords should be encrypted using something like bcrypt...
         if (dbUser && dbUser.password === credentials.password) {
           const { password, createdAt, id, ...dbUserWithoutPassword } = dbUser;
           return dbUserWithoutPassword as User;
@@ -44,11 +41,3 @@ export async function loginIsRequiredServer() {
   const session = await getServerSession(nextAuthConfig);
   if (!session) return redirect("/login");
 }
-
-// export function loginIsRequiredClient() {
-//   if (typeof window !== "undefined") {
-//     const session = useSession();
-//     const router = useRouter();
-//     if (!session) router.push("/login");
-//   }
-// }

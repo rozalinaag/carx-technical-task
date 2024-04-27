@@ -6,15 +6,15 @@ export const users = [
     idUser: 1,
   }, 
   {
-    email: 'ds@mail.ru', 
-    name: 'Светлана Цветаева',
-    password: '12345',
-    idUser: 1,
+    email: 'admin', 
+    name: 'Техническая поддержка',
+    password: 'admin',
+    idUser: 2,
   }, 
   {
-    email: 'ds@mail.ru', 
-    name: 'Светлана Цветаева',
+    email: 'test@gmail.com', 
+    name: 'Игорь Иванов',
     password: '12345',
-    idUser: 1,
+    idUser: 3,
   }
 ]
