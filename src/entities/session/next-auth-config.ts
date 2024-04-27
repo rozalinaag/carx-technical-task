@@ -1,5 +1,5 @@
 import { AuthOptions } from "next-auth";
-import {  User, getServerSession } from "next-auth";
+import {  getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -17,20 +17,7 @@ export const nextAuthConfig: AuthOptions = {
         password: { label: "Password", type: "password" },
       },
 
-      async authorize(credentials) {
-        console.log(credentials);
-        if (!credentials || !credentials.email || !credentials.password)
-          return null;
-
-        const dbUser = await prisma.user.findFirst({
-          where: { email: credentials.email },
-        });
-
-        if (dbUser && dbUser.password === credentials.password) {
-          const { password, createdAt, id, ...dbUserWithoutPassword } = dbUser;
-          return dbUserWithoutPassword as User;
-        }
-
+      async authorize() {
         return null;
       },
     })

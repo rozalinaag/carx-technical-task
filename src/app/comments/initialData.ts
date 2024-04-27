@@ -3,7 +3,7 @@ import { CommentType } from "./types";
 export const comments: CommentType[] = [
   {
     id: "1",
-    idTicket: "1",
+    idTicket: "5",
     user: {
       email: 'ds@mail.ru', 
       name: 'Светлана Цветаева',
@@ -15,7 +15,7 @@ export const comments: CommentType[] = [
   },
   {
     id: "2",
-    idTicket: "1",
+    idTicket: "5",
     user:  {
       email: 'admin', 
       name: 'Техническая поддержка',
@@ -27,7 +27,7 @@ export const comments: CommentType[] = [
   },
   {
     id: "3",
-    idTicket: "1",
+    idTicket: "5",
     user: {
       email: 'ds@mail.ru', 
       name: 'Светлана Цветаева',
@@ -50,7 +50,7 @@ export const comments: CommentType[] = [
     data: new Date(),
   },
   {
-    id: "5",
+    id: "1",
     idTicket: "2",
     user: {
       email: 'test@gmail.com', 
