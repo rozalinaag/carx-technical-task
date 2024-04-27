@@ -24,13 +24,19 @@ export function Form() {
     const name = data.get('name');
 
     if (password && email && name) {
-      pushNewUser({
+      const result = pushNewUser({
         email: email.toString(),
         password: password.toString(),
         name: name.toString(),
         id: uuIdv4(),
       });
-      router.push('/tickets');
+
+      console.log(result);
+      if (result) {
+        router.push('/tickets');
+      } else {
+        setError('Такой логин уже существует');
+      }
     } else {
       setError('Заполните все поля');
     }

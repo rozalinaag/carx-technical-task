@@ -5,11 +5,14 @@ import { useStores } from '@/shared/hooks/useStore';
 import { observer } from 'mobx-react-lite';
 import Ticket from '@/shared/ui/Ticket/Ticket';
 import FormTicket from './FormTicket/FormTicket';
+import { useRouter } from 'next/navigation';
 
 const Tickets = observer(() => {
+  const router = useRouter();
+
   const {
     tickets: { tickets, getTicketsAction, pushNewTicketAction },
-    users: { currentUser },
+    users: { currentUser, getCurrentUser },
   } = useStores();
 
   useEffect(() => {
@@ -17,6 +20,12 @@ const Tickets = observer(() => {
       getTicketsAction();
     }
   }, [getTicketsAction, tickets]);
+
+  useEffect(() => {
+    if (!getCurrentUser()) {
+      router.push('/login');
+    }
+  }, [router, getCurrentUser]);
 
   return (
     <div>

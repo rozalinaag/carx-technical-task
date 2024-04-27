@@ -40,10 +40,15 @@ class UserStore {
   }
 
   pushNewUser = (newUser: UserType) => {
+    const isNotUniq = this.users?.find(item => item.email === newUser.email)
+    if (isNotUniq){
+      return false
+    }
     this.users = this.users ? [...this.users, newUser]: [newUser];
     this.currentUser = newUser,
     localStorage.setItem('users', JSON.stringify(this.users));
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    return true;
   }
 }
 
