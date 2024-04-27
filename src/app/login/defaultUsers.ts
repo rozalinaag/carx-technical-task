@@ -3,18 +3,18 @@ export const users = [
     email: 'ds@mail.ru', 
     name: 'Светлана Цветаева',
     password: '12345',
-    idUser: 1,
+    id: "1",
   }, 
   {
     email: 'admin', 
     name: 'Техническая поддержка',
     password: 'admin',
-    idUser: 2,
+    id: "2",
   }, 
   {
     email: 'test@gmail.com', 
     name: 'Игорь Иванов',
     password: '12345',
-    idUser: 3,
+    id: "3",
   }
 ]
