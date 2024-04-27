@@ -110,7 +110,7 @@ table {
   color: var(--green);
 }
 
-input{
+.input{
   padding: 6px 12px;
   width: 100%;
   background: rgb(31, 32, 35);
@@ -123,9 +123,8 @@ input{
   transition: border 0.15s ease 0s;
 }
 
-input:focus{
+.input:focus{
   outline: none;
   box-shadow: none;
   border-color: rgb(100, 153, 255);
 }
-

@@ -8,6 +8,7 @@ import Ticket from '@/shared/ui/Ticket/Ticket';
 import { CommentLine } from '@/shared/ui/CommentLine/CommentLine';
 import FormComment from '@/app/comments/FormComment/FormComment';
 import { observer } from 'mobx-react-lite';
+import Image from 'next/image';
 
 type Props = {
   params: { ticketId: string };
@@ -15,6 +16,7 @@ type Props = {
 
 const TicketId = observer(({ params }: Props) => {
   const [ticket, setTicket] = useState<TicketType>();
+
   const {
     tickets: { getOneTicket },
     comments: {
@@ -59,7 +61,7 @@ const TicketId = observer(({ params }: Props) => {
                 />
               ) : (
                 <CommentLine
-                  data={ticket.dataClose}
+                  data={ticket.dataClose || new Date()}
                   userName={'Техническая поддержка'}
                   text={'История закрыта'}
                 />

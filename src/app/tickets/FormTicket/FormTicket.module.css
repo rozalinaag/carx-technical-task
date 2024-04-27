@@ -1,0 +1,13 @@
+.custom::before {
+  content: 'Выберите файлы';
+  padding: 12px;
+  border-radius: 5px;
+  width: 280px;
+  position: absolute;
+  display: inline-block;
+  background: #000000;
+  left: 180px;
+  text-align: center;
+  border: 1px solid rgb(60, 60, 60);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+}

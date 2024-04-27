@@ -21,14 +21,11 @@ class TicketsStore {
   }
 
   deleteTicketAction = (id: number) => {
-    // this.clients = deleteClients(keys, this.clients);
-    // localStorage.setItem('clients', JSON.stringify(this.clients));
   }
 
   pushNewTicketAction = (newTicket: Ticket) => {
-    // const  newData = [...this.clients.filter(item => item.key !== newClient.key), newClient]
-    // this.clients = newData;
-    // localStorage.setItem('clients', JSON.stringify(newData));
+    this.tickets = this.tickets ? [...this.tickets, newTicket]: [newTicket];
+    localStorage.setItem('tickets', JSON.stringify(this.tickets));
   }
 }
 

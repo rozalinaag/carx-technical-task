@@ -49,6 +49,7 @@ export default function FormComment({ pushNewComment, idTicket }: Props) {
         onSubmit={handleSubmit(submit)}
       >
         <input
+          className="input"
           type="text"
           {...register('text', { required: 'Обязательно для заполнения' })}
         />

@@ -4,6 +4,7 @@ import Field from '../Field/Field';
 import Link from 'next/link';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
+import Image from 'next/image';
 
 type Props = {
   ticket: TicketType;
@@ -25,6 +26,21 @@ export default function Ticket({ ticket, link = true }: Props) {
       <Field name="Сообщение" color="blue">
         {ticket.message}
       </Field>
+
+      {ticket.files && (
+        <div className={css.files}>
+          {ticket.files.map((item, index) => (
+            <Image
+              key={index}
+              unoptimized
+              width={100}
+              height={100}
+              src={item}
+              alt="picture"
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 

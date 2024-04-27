@@ -12,3 +12,10 @@
 .open{
   color: var(--green);
 }
+
+.files{
+  display: flex;
+  margin-left: 140px;
+  flex-wrap: wrap;
+  gap: 10px;
+}

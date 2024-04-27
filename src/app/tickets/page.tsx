@@ -4,10 +4,11 @@ import { useEffect } from 'react';
 import { useStores } from '@/shared/hooks/useStore';
 import { observer } from 'mobx-react-lite';
 import Ticket from '@/shared/ui/Ticket/Ticket';
+import FormTicket from './FormTicket/FormTicket';
 
 const Tickets = observer(() => {
   const {
-    tickets: { tickets, getTicketsAction },
+    tickets: { tickets, getTicketsAction, pushNewTicketAction },
   } = useStores();
 
   useEffect(() => {
@@ -16,16 +17,17 @@ const Tickets = observer(() => {
     }
   }, [getTicketsAction, tickets]);
 
-  console.log(tickets);
-
   return (
     <div>
       <BreadCrumbs />
 
+      <FormTicket pushNewTicketAction={pushNewTicketAction} />
+
       <div className="flex flex-col gap-10">
-        {tickets?.map((ticket) => (
-          <Ticket key={ticket.id} ticket={ticket} />
-        ))}
+        {tickets &&
+          [...tickets]
+            .reverse()
+            .map((ticket) => <Ticket key={ticket.id} ticket={ticket} />)}
       </div>
     </div>
   );
