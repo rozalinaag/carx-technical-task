@@ -40,15 +40,15 @@ export const nextAuthConfig: AuthOptions = {
   ]
 }
 
-// export async function loginIsRequiredServer() {
-//   const session = await getServerSession(nextAuthConfig);
-//   if (!session) return redirect("/login");
-// }
+export async function loginIsRequiredServer() {
+  const session = await getServerSession(nextAuthConfig);
+  if (!session) return redirect("/login");
+}
 
 // export function loginIsRequiredClient() {
 //   if (typeof window !== "undefined") {
 //     const session = useSession();
 //     const router = useRouter();
-//     if (!session) router.push("/");
+//     if (!session) router.push("/login");
 //   }
 // }
